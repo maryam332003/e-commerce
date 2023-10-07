@@ -1,0 +1,21 @@
+.product-container {
+  width: 97%;
+  margin: auto;
+}
+
+.fa-heart {
+  /* right: 50px !important; */
+  left: 0;
+  /* padding: 50px; */
+  /* background-color: black; */
+}
+
+/* .overlay-container {
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  background-color: #0aad0a;
+  z-index: 999;
+  right: 0;
+  bottom: 0;
+} */

@@ -1,0 +1,28 @@
+<div *ngIf="productDetail" class="products-container p-0 m-0">
+  <div class="row align-items-center">
+    <div class="col-md-3">
+      <img [src]="productDetail.imageCover" alt="" class="w-100" />
+    </div>
+    <div class="col-md-8">
+      <h2>{{ productDetail.title }}</h2>
+      <p>{{ productDetail.description }}</p>
+      <span class="main-color">{{ productDetail.category.name }}</span>
+      <div class="d-flex justify-content-between">
+        <span>{{ productDetail.price | currency }}</span>
+        <span>
+          <i class="fas fa-star rating-color ng-star-inserted"></i>
+          <i class="fas fa-star rating-color ng-star-inserted"></i>
+          <i class="fas fa-star rating-color ng-star-inserted"></i>
+          {{ productDetail.ratingsAverage }}</span
+        >
+      </div>
+      <button
+        class="main-btn w-100 py-1 my-2"
+        (click)="addCart(productDetail._id)"
+      >
+        <i class="fa-solid fa-plus"></i>
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>

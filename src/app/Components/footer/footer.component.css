@@ -1,0 +1,27 @@
+.footer-container{
+  width: 95%;
+  /* background-color: blue; */
+
+}
+footer{
+  background-color: #F0F3F2;
+  width: 100%;
+
+
+}
+.icon{
+  color: #0aad0a;
+  border: #0aad0a 1px solid;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+.icon:hover{
+  color: white;
+  background-color: #0aad0a;
+}

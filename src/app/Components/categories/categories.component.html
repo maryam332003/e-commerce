@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let category of categoryList" class="col-md-3 my-2 cursor-pointer">
+      <div class="p-2 item">
+        <img [src]="category.image" alt="" class="w-100" />
+        <h4 class="main-color fw-bold"{{category.name}}></h4>
+      </div>
+    </div>
+  </div>
+</div>

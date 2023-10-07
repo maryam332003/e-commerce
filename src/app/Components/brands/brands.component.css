@@ -1,0 +1,8 @@
+.item{
+  border: 1px rgb(130, 130, 130) solid;
+  border-radius: 5px;
+}
+.brands-container{
+  width: 96%;
+  margin: auto;
+}

@@ -1,0 +1,15 @@
+.small-img{
+  height: 200px;
+  /* border-radius: 5px; */
+
+}
+.big-img{
+  height: 400px;
+  /* border-radius: 5px; */
+
+}
+
+.slider-container{
+  height: 400px;
+  border-radius: 5px;
+}

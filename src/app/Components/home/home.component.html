@@ -1,0 +1,34 @@
+<app-mainslider></app-mainslider>
+<app-categoryslider></app-categoryslider>
+
+<div class="product-container">
+  <div class="row">
+    <div
+      *ngFor="let product of productList"
+      class="col-md-2 my-2 overflow-hidden product "
+    >
+      <div
+        [routerLink]="['/productdetails', product._id]"
+        class="cursor-pointer p-2 position-relative mx-1"
+      >
+        <img [src]="product.imageCover" alt="" class="w-100" />
+        <!-- <span class="position-absolute"><i class="fa-solid fa-heart main-color fs-3"></i></span> -->
+        <h4 class="main-color">{{ product.category.name }}</h4>
+        <h3>{{ product.title.split(" ", 2).join(" ") }}</h3>
+        <div class="d-flex justify-content-between px-3">
+          <span>{{ product.price }}</span>
+          <span class="main-color">{{ product.ratingsAverage }}</span>
+        </div>
+      </div>
+      <button
+        (click)="addCart(product._id)"
+        class="btn main-btn px-3 py-2 d-block m-auto"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
+<!-- <div class="overlay-container" aria-live="polite">
+  <div id="alert-container" class="toast-container"></div>
+</div> -->

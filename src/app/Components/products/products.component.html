@@ -1,0 +1,16 @@
+<div class="product-container my-3 mb-5">
+  <input type="text" class="form-control w-75 m-auto my-3">
+  <div class="row">
+    <div *ngFor="let product of productList" class="col-md-2">
+      <div [routerLink]="['/productdetails',product._id]" class="product cursor-pointer p-2">
+        <img [src]="product.imageCover" alt="" class="w-100" />
+        <h6 class="main-color">{{ product.category.name }}</h6>
+        <span>{{ product.title.split(" ", 2).join(" ") }}</span>
+        <div class="d-flex justify-content-between px-3">
+          <span>{{ product.price }}</span>
+          <span class="main-color">{{ product.ratingsAverage }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
