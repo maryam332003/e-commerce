@@ -1,10 +1,10 @@
 export interface CartData {
   status:         string;
   numOfCartItems: number;
-  data:           Data;
+  data:           cartItem;
 }
 
-export interface Data {
+export interface cartItem {
   _id:            string;
   cartOwner:      string;
   products:       ProductElement[];

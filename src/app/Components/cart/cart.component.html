@@ -1,9 +1,12 @@
 <section
-  *ngIf="cartData"
+  *ngIf="cartData != null; else noCartData"
   class="bg-main-light p-4 my-4 w-75 mx-auto rounded shadow cart-area ng-star-inserted"
 >
   <h1 class="text-center h3">Shop Cart</h1>
-  <button (click)="clearCart()" class="btn btn-outline-danger btn-sm d-block ms-auto">
+  <button
+    (click)="clearCartProducts()"
+    class="btn btn-outline-danger btn-sm d-block ms-auto"
+  >
     <i class="fas fa-trash"></i> Clear Cart
   </button>
   <div
@@ -23,18 +26,29 @@
           <h3 class="h6 small">{{ product.product.title }}</h3>
           <span class="text-main">Price: {{ product.price }}</span
           ><button
-            (click)="deleteProduct(cartData.data._id)"
-            class="main-btn p-2 btn-remove d-block text-main my-3"
+            (click)="deleteProduct(product.product._id)"
+            class="btn btn-danger p-2 btn-remove d-block text-light my-3"
           >
-            <i class="fas fa-trash me-2"></i><span>Remove</span>
+            <i class="fas fa-trash me-2 text-light"></i><span>Remove</span>
           </button>
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="hstack gap-3 justify-content-end">
-        <button class="btn-count">+</button><span> {{ product.count }}</span
-        ><button class="btn-count">-</button>
+        <button
+          (click)="updateQuantity(product.product._id, product.count + 1)"
+          class="btn-count py-1 px-2"
+        >
+          +
+        </button>
+        <span> {{ product.count }}</span>
+        <button
+          (click)="updateQuantity(product.product._id, product.count - 1)"
+          class="btn btn-outline-danger m-0 p-0 py-1 px-2"
+        >
+          -
+        </button>
       </div>
     </div>
     <hr class="my-3" />
@@ -43,7 +57,7 @@
     >Total Price: {{ cartData.data.totalCartPrice }}
   </span>
   <button
-    routerlink="/shopaddress"
+    [routerLink]="['/checkout',cartData.data._id]"
     class="main-btn py-0 d-block my-3"
     tabindex="0"
   >
@@ -51,3 +65,22 @@
     <img src="assets/visa-1.svg" alt="visa card" />
   </button>
 </section>
+
+<ng-template #noCartData>
+  <div class="container m-auto my-4">
+    <div class="emptycart-img d-flex justify-content-center">
+      <img src="assets/preview-removebg-preview.png" alt="" />
+    </div>
+    <div class="content text-center">
+      <h3 class="fw-bold">Your Cart Is Empty</h3>
+      <p>
+        Looks like you have not added anyhing to you tar. Go ahead a explore top
+        categories
+      </p>
+      <button class="main-btn px-3 py-2" routerLink="/home">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Return To Shop
+      </button>
+    </div>
+  </div>
+</ng-template>

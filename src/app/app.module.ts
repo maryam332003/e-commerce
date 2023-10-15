@@ -22,6 +22,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { CategorysliderComponent } from './Components/categoryslider/categoryslider.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CategorysliderComponent } from './Components/categoryslider/categorysli
     ProductdetailsComponent,
     MainsliderComponent,
     CategorysliderComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+import { userGuard } from './Guards/user.guard';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { ProductdetailsComponent } from 'src/app/Components/productdetails/productdetails.component';
 import { NotfoundComponent } from 'src/app/Components/notfound/notfound.component';
 import { authGuard } from 'src/app/Guards/auth.guard';
@@ -31,13 +33,18 @@ const routes: Routes = [
     canActivate: [authGuard],
     component: CartComponent,
   },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'checkout/:id',
+    canActivate: [authGuard],
+    component: CheckoutComponent,
+  },
+  { path: 'register', canActivate: [userGuard], component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

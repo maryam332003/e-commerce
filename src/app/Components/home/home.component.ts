@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
       next: (data) => {
         console.log('added to cart', data);
         if(data.status=='success'){
+          this._CartService.changeCartCount(data.numOfCartItems)
           Swal.fire({
             position: 'center',
             icon: 'success',

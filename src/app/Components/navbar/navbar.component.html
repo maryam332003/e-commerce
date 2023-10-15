@@ -48,8 +48,12 @@
           <a class="nav-link"> <i class="fa-solid fa-heart main-color"></i> </a>
         </li>
         <li *ngIf="isLogin != null" class="nav-item fs-4 cursor-pointer">
-          <a class="nav-link" routerLink="cart">
+          <a class="nav-link  position-relative" routerLink="cart">
             <i class="fa-solid fa-cart-shopping main-color"></i>
+            <span class="position-absolute badge bg-dark text-light">
+              {{count}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
           </a>
         </li>
 

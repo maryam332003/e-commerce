@@ -1,4 +1,4 @@
-<div *ngIf="productDetail" class="products-container p-0 m-0">
+<div *ngIf="productDetail" class="products-container container m-auto p-0 m-0">
   <div class="row align-items-center">
     <div class="col-md-3">
       <img [src]="productDetail.imageCover" alt="" class="w-100" />
@@ -18,7 +18,7 @@
       </div>
       <button
         class="main-btn w-100 py-1 my-2"
-        (click)="addCart(productDetail._id)"
+        (click)="addItemToCart(productDetail._id)"
       >
         <i class="fa-solid fa-plus"></i>
         Add To Cart

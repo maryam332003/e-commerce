@@ -1,0 +1,100 @@
+<section class="w-50 mx-auto shadow rounded bg-main-light p-3 my-5 pb-5">
+  <h1 class="text-center">shipping Address</h1>
+  <form
+    (ngSubmit)="sendPaymentData(checkOutForm)"
+    [formGroup]="checkOutForm"
+    class="vstack gap-3"
+  >
+    <div class="form-item">
+      <label for="details">Details:</label
+      ><input
+        id="details"
+        formControlName="details"
+        placeholder="Your Details..."
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          checkOutForm.get('details')?.errors &&
+          checkOutForm.get('details')?.touched
+        "
+        class="alert alert-danger p-0 m-0 pt-1 px-2 mt-1"
+      >
+        <p
+          *ngIf="
+        checkOutForm.get('details')?.errors?.['required'] &&
+        checkOutForm.get('details')?.touched
+      "
+        >
+          Details Is Required
+        </p>
+        <p *ngIf="checkOutForm.get('details')?.errors?.['minlength']">
+          Details MinLength is 2
+        </p>
+      </div>
+    </div>
+    <div class="form-item">
+      <label for="phone">Phone:</label
+      ><input
+        id="phone"
+        type="tel"
+        formControlName="phone"
+        placeholder="Your Phone..."
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          checkOutForm.get('phone')?.errors &&
+          checkOutForm.get('phone')?.touched
+        "
+        class="alert alert-danger p-0 m-0 pt-1 px-2 mt-1"
+      >
+        <p
+          *ngIf="
+      checkOutForm.get('phone')?.errors?.['required'] &&
+      checkOutForm.get('phone')?.touched
+    "
+        >
+          Phone Is Required
+        </p>
+        <p *ngIf="checkOutForm.get('phone')?.errors?.['pattern']">
+          Please Enter Valid Phone Number
+        </p>
+      </div>
+    </div>
+    <div class="form-item">
+      <label for="city">City:</label
+      ><input
+        id="city"
+        type="text"
+        formControlName="city"
+        placeholder="Your City..."
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          checkOutForm.get('city')?.errors && checkOutForm.get('city')?.touched
+        "
+        class="alert alert-danger p-0 m-0 pt-1 px-2 mt-1"
+      >
+        <p
+          *ngIf="
+      checkOutForm.get('city')?.errors?.['required'] &&
+      checkOutForm.get('city')?.touched
+    "
+        >
+          City Is Required
+        </p>
+        <p *ngIf="checkOutForm.get('city')?.errors?.['minlength']">
+          City MinLength is 2
+        </p>
+      </div>
+    </div>
+    <button *ngIf="!loading" type="submit" class="main-btn w-25 py-2 px-1 ms-auto" [disabled]="!checkOutForm.valid">
+      Next
+    </button>
+    <button *ngIf="loading"  type="button" class="main-btn px-4 py-2 d-block ms-auto">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    </button>
+  </form>
+</section>
